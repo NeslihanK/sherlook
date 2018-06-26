@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<head>
+  <title>{{title}}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+        
 
+  <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+    <div class= "container">
+      <a class="navbar-brand">Sherlook</a>
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-primary">
+          <input type="radio" name="options" id="option1" autocomplete="off" checked> Log in
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="options" id="option2" autocomplete="off"> Sign up
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="options" id="option3" autocomplete="off"> Profile
+        </label>
+
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button">Pets</button>
+            <button class="dropdown-item" type="button">Bags</button>
+            <button class="dropdown-item" type="button">Wallets</button>
+            <button class="dropdown-item" type="button">Keys</button>
+            <button class="dropdown-item" type="button">Phones</button>
+            <button class="dropdown-item" type="button">Others</button>
+
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+
+    <div class="frontpage">
+      <button type="button" class="btn btn-primary btn-lg">Large button</button>
+      <button type="button" class="btn btn-primary btn-lg">Large button</button>
+    </div>
+    
     {{{body}}}
+  </div>
 
-    <script src='/javascripts/script.js'></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+  <script src='/javascripts/script.js'></script>
+</body>
 </html>
