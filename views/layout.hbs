@@ -6,21 +6,26 @@
 </head>
 <body>
         
+        {{!-- <a href="#" class="btn btn-info" role="button">Link Button</a> --}}
 
   <nav class="navbar navbar-expand-sm navbar-light bg-primary">
     <div class= "container">
-      <a class="navbar-brand">Sherlook</a>
+      <a href="/" class="navbar-brand">Sherlook</a>
 
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-primary">
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> Log in
-        </label>
-        <label class="btn btn-primary">
-          <input type="radio" name="options" id="option2" autocomplete="off"> Sign up
-        </label>
+      <div class="btn-group btn-group-toggle">
+
+        <a href="/auth/login" class="btn btn-primary">
+            Log in
+        </a>
+ 
+        <a  href="/auth/signup" class="btn btn-primary">
+          Sign up
+        </a>
+        
         <label class="btn btn-primary">
           <input type="radio" name="options" id="option3" autocomplete="off"> Profile
         </label>
+       
 
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,10 +50,10 @@
 
   <div class="container mt-3">
 
-    <div class="frontpage">
+    {{!-- <div class="frontpage">
       <button type="button" class="btn btn-primary btn-lg">Large button</button>
       <button type="button" class="btn btn-primary btn-lg">Large button</button>
-    </div>
+    </div> --}}
     
     {{{body}}}
   </div>
