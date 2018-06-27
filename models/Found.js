@@ -7,8 +7,9 @@ const foundSchema = new Schema({
   foundItem: { type: String, required: true },
   location: { type: String},
   foundDate: { type: Date },
-  imageURL: { type: String},
+  image: { type: String},
   desc: { type: String},
+  comments: [{type: Schema.Types.ObjectId, ref:'Comment'}],
   _user: [{type: Schema.Types.ObjectId, ref:'User'}]
 });
 
