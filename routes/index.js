@@ -13,7 +13,7 @@ router.get("/lost-form", (req, res, next) => {
   res.render("lost-form");
 });
 
-router.post("/lost-forms", (req, res, next) => {
+router.post("/lost-form", (req, res, next) => {
   let {lostItem, imageURL, location, lostDate, desc }=req.body;
   let newLost = new Lost({
     lostItem,

@@ -1,28 +1,42 @@
 <!-- views/auth/signup.hbs -->
 <h2>Lost something?</h2>
 
-
 <form action="/lost-form" method="post" id="form-container">
-  <label for="lost-item">Lost item</label>
-  <input id="lost-item" type="text" name="lost-item" placeholder="What did you lose?">
 
-  <br><br>
+  <div class="form-group">
+    <label for="lost-item">Categories</label>
+    <select name="lostItem" class="form-control" id="lost-item">
+      <option>Pets</option>
+      <option>Bags</option>
+      <option>Wallets</option>
+      <option>Keys</option>
+      <option>Phones</option>
+      <option>Others</option>
+    </select>
+  </div>
 
-  <label for="lost-place">Lost place</label>
-  <input id="lost-place" type="text" name="lost-place" placeholder="where did you lose it?">
+  <div class="form-group">
+    <label for="lost-place">Lost place</label>
+    <input type="text" class="form-control" id="lost-place" placeholder="What did you lose?">
+  </div>
 
-  <br><br>
+  <div class="form-group">
+    <label for="lost-date">When did you lose it?</label>
+    <input type="date" class="form-control" id="lost-date" placeholder="What did you lose?">
+  </div>
 
-  <label for="lost-date">When did you lose it?</label>
-  <input id="lost-date" type="date" name="lost-date" placeholder="">
+  
+  <div class="form-group">
+    <label for="pic-item">Item Picture</label>
+    <input type="file" class="form-control-file" id="pic-item">
+  </div>
 
-  <br><br>
-
-  <label for="lost-description">Describe the item</label>
-  <input id="lost-description" type="text" name="lost-description" placeholder="">
-
-  <br><br>
-
+ 
+  <div class="form-group">
+    <label for="lost-description">Describe the item</label>
+    <textarea class="form-control" id="lost-description" rows="3"></textarea>
+  </div>
+</form>
 
  
   <br>
@@ -32,10 +46,7 @@
 
   <br><br>
 
-  <button type="submit">Submit the form</button>
+  <button type="submit" class="btn btn-primary">Submit the form</button>
 
 </form>
-  {{!-- <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p> --}}
+
