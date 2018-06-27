@@ -1,0 +1,36 @@
+<h2>Found something?</h2>
+
+
+<form action="/found-form" method="post" id="form-container">
+  <label for="found-item">Found item</label>
+  <input id="found-item" type="text" name="found-item" placeholder="What did you find?">
+
+  <br><br>
+
+  <label for="found-place">Found place</label>
+  <input id="found-place" type="text" name="found-place" placeholder="where did you find it?">
+
+  <br><br>
+
+  <label for="found-date">When did you find it?</label>
+  <input id="found-date" type="date" name="found-date" placeholder="">
+
+  <br><br>
+
+  <label for="found-description">Describe the item</label>
+  <input id="found-description" type="text" name="found-description" placeholder="">
+
+  <br><br>
+
+
+ 
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+
+  <button type="submit">Submit the form</button>
+
+</form>

@@ -46,7 +46,7 @@ authRoutes.post("/signup", (req, res, next) => {
       password: hashPass,
       role:"teacher"
     });
-
+    
     newUser.save((err) => {
       if (err) {
         res.render("auth/signup", { message: "Something went wrong" });
