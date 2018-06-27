@@ -74,10 +74,8 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
     
-app.use(function (req,res,next) {
- 
-  res.locals.myUser=req.user;
-  
+app.use(function (req,res,next) { 
+  res.locals.myUser=req.user;  
   next();
 });
 

@@ -26,7 +26,8 @@ router.post("/lost-form", uploadCloud.single("image"),(req, res, next) => {
     location,
     lostDate,
     reward,
-    desc
+    desc,
+    _user:req.user
     });
    console.log("newLost is", newLost);
   
@@ -45,7 +46,7 @@ router.get("/found-form", (req, res, next) => {
 });
 
 router.post("/found-form", uploadCloud.single("image"), (req, res, next) => {
-  let {category, foundItem, location, foundDate, desc }=req.body;
+  let {category, foundItem, location, foundDate, desc,}=req.body;
   let image = req.file.url;
   let newFound = new Found({
     category,
@@ -53,7 +54,8 @@ router.post("/found-form", uploadCloud.single("image"), (req, res, next) => {
     image,
     location,
     foundDate,
-    desc
+    desc,
+    _user:req.user
   });
    
   newFound.save((err) => {
@@ -85,6 +87,11 @@ router.get('/found-list', (req, res, next) => {
     res.render('found-list', data);
   })
   .catch(err => {throw err})
+});
+
+router.get('/profile', (req, res, next) => {
+  
+  res.render('profile');
 });
 
 module.exports = router;

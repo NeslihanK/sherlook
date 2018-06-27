@@ -12,22 +12,7 @@
     <div class= "container">
       <a href="/" class="navbar-brand">Sherlook</a>
 
-      <div class="btn-group btn-group-toggle">
-
-        <a href="/auth/login" class="btn btn-primary">
-            Login
-        </a>
- 
-        <a  href="/auth/signup" class="btn btn-primary">
-          Sign up
-        </a>
-
-        <label class="btn btn-primary">
-          <input type="radio" name="options" id="option3" autocomplete="off"> Profile
-        </label>
-       
-       
-        <div class="dropdown">
+       <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categories
           </button>
@@ -41,7 +26,26 @@
 
           </div>
         </div>
+      <div class="btn-group btn-group-toggle">
 
+      {{#if myUser}}
+        <a  href="/profile" class="btn btn-primary">
+          {{myUser.username}}
+        </a>
+
+        <a  href="/auth/logout" class="btn btn-primary">
+          Logout
+        </a>
+      {{else}}
+        <a href="/auth/login" class="btn btn-primary">
+            Login
+        </a>
+
+        <a  href="/auth/signup" class="btn btn-primary">
+          Sign up
+        </a>
+      {{/if}}
+        
       </div>
 
     </div>
