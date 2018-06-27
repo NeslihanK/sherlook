@@ -66,7 +66,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 // Enable authentication using session + passport
 app.use(session({
-  secret: 'irongenerator',
+  secret: 'this site helps you to find lost things',
   resave: true,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection })
@@ -74,6 +74,12 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
     
+app.use(function (req,res,next) {
+ 
+  res.locals.myUser=req.user;
+  
+  next();
+});
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -81,6 +87,4 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
       
-
-
 module.exports = app;

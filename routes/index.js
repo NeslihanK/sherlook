@@ -6,7 +6,8 @@ const Lost = require("../models/Lost");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  user=req.user;
+  res.render('index', {user});
 });
 
 /* Go to lost form */
@@ -61,6 +62,27 @@ router.post("/found-form", (req, res, next) => {
   });
 }); 
 
+router.get('/lost-list', (req, res, next) => {
+  Lost.find()
+  .then((lostDocs) => {
+    let data = {
+      losts: lostDocs
+    };
+    res.render('lost-list', data);
+  })
+  .catch(err => {throw err})
+});
+
+router.get('/found-list', (req, res, next) => {
+  Found.find()
+  .then((foundDocs) => {
+    let data = {
+      founds: foundDocs
+    };
+    res.render('found-list', data);
+  })
+  .catch(err => {throw err})
+});
 
 module.exports = router;
 
