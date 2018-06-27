@@ -4,47 +4,53 @@
 <form action="/lost-form" method="post" id="form-container">
 
   <div class="form-group">
-    <label for="lost-item">Categories</label>
-    <select name="lostItem" class="form-control" id="lost-item">
-      <option>Pets</option>
-      <option>Bags</option>
-      <option>Wallets</option>
-      <option>Keys</option>
-      <option>Phones</option>
-      <option>Others</option>
+    <label for="category">Category</label>
+    <select name="category" class="form-control" id="category">
+      <option>Pet</option>
+      <option>Bag</option>
+      <option>Wallet</option>
+      <option>Key</option>
+      <option>Phone</option>
+      <option>Other</option>
     </select>
   </div>
 
   <div class="form-group">
+    <label for="lostItem">Lost Item</label>
+    <input name="lostItem" type="text" class="form-control" id="lostItem" placeholder="What did you lose?">
+  </div>
+
+  <div class="form-group">
     <label for="lost-place">Lost place</label>
-    <input type="text" class="form-control" id="lost-place" placeholder="What did you lose?">
+    <input name="location" type="text" class="form-control" id="lost-place" placeholder="Where did you lose it?">
   </div>
 
   <div class="form-group">
     <label for="lost-date">When did you lose it?</label>
-    <input type="date" class="form-control" id="lost-date" placeholder="What did you lose?">
+    <input name="lostDate" type="date" class="form-control" id="lost-date" placeholder="What did you lose?">
   </div>
-
   
   <div class="form-group">
     <label for="pic-item">Item Picture</label>
-    <input type="file" class="form-control-file" id="pic-item">
+    <input name="imageURL" type="file" class="form-control-file" id="pic-item">
   </div>
 
+  <div class="form-group">
+    <label for="reward">Reward</label>
+    <input name="reward" type="text" class="form-control" id="reward" placeholder="Do you want to put a reward on it ?">
+  </div>
  
   <div class="form-group">
     <label for="lost-description">Describe the item</label>
-    <textarea class="form-control" id="lost-description" rows="3"></textarea>
+    <textarea name="desc" class="form-control" id="lost-description" rows="3"></textarea>
   </div>
-</form>
-
  
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <br><br>
+  <br>
 
   <button type="submit" class="btn btn-primary">Submit the form</button>
 

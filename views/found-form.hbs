@@ -2,35 +2,51 @@
 
 
 <form action="/found-form" method="post" id="form-container">
-  <label for="found-item">Found item</label>
-  <input id="found-item" type="text" name="found-item" placeholder="What did you find?">
 
-  <br><br>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select name="category" class="form-control" id="category">
+      <option>Pet</option>
+      <option>Bag</option>
+      <option>Wallet</option>
+      <option>Key</option>
+      <option>Phone</option>
+      <option>Other</option>
+    </select>
+  </div>
 
-  <label for="found-place">Found place</label>
-  <input id="found-place" type="text" name="found-place" placeholder="where did you find it?">
+  <div class="form-group">
+    <label for="found-item">Found Item</label>
+    <input name="foundItem" type="text" class="form-control" id="found-item" placeholder="What did you find?">
+  </div>
 
-  <br><br>
+  <div class="form-group">
+    <label for="found-place">Found place</label>
+    <input name="location" type="text" class="form-control" id="found-place" placeholder="Where did you find it?">
+  </div>
 
-  <label for="found-date">When did you find it?</label>
-  <input id="found-date" type="date" name="found-date" placeholder="">
+  <div class="form-group">
+    <label for="found-date">When did you find it?</label>
+    <input name="foundDate" type="date" class="form-control" id="found-date" placeholder="">
+  </div>
 
-  <br><br>
-
-  <label for="found-description">Describe the item</label>
-  <input id="found-description" type="text" name="found-description" placeholder="">
-
-  <br><br>
-
-
+  <div class="form-group">
+    <label for="pic-item">Item Picture</label>
+    <input name="imageURL" type="file" class="form-control-file" id="pic-item">
+  </div>
+  
+  <div class="form-group">
+    <label for="found-description">Describe the item</label>
+    <textarea name="desc" class="form-control" id="found-description" rows="3"></textarea>
+  </div>
  
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <br><br>
+  <br>
 
-  <button type="submit">Submit the form</button>
+  <button type="submit" class="btn btn-primary">Submit the form</button>
 
 </form>

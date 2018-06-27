@@ -15,12 +15,14 @@ router.get("/lost-form", (req, res, next) => {
 });
 
 router.post("/lost-form", (req, res, next) => {
-  let {lostItem, imageURL, location, lostDate, desc }=req.body;
+  let {category, lostItem, imageURL, location, lostDate, reward, desc}=req.body;
   let newLost = new Lost({
+    category,
     lostItem,
     imageURL,
     location,
     lostDate,
+    reward,
     desc
     });
    console.log("newLost is", newLost);
@@ -40,8 +42,9 @@ router.get("/found-form", (req, res, next) => {
 });
 
 router.post("/found-form", (req, res, next) => {
-  let {foundItem, imageURL, location, foundDate, desc }=req.body;
+  let {category, foundItem, imageURL, location, foundDate, desc }=req.body;
   let newFound = new Found({
+    category,
     foundItem,
     imageURL,
     location,
