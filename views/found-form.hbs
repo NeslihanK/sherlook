@@ -1,7 +1,7 @@
 <h2>Found something?</h2>
 
 
-<form action="/found-form" method="post" id="form-container">
+<form action="/found-form" method="post" id="form-container" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="category">Category</label>
@@ -31,8 +31,8 @@
   </div>
 
   <div class="form-group">
-    <label for="pic-item">Item Picture</label>
-    <input name="imageURL" type="file" class="form-control-file" id="pic-item">
+    <label for="image">Item Picture</label>
+    <input name="image" type="file" class="form-control-file" id="image">
   </div>
   
   <div class="form-group">

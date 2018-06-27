@@ -2,7 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const Found = require("../models/Found");
 const Lost = require("../models/Lost");
-
+/*MIddelware */
+const uploadCloud = require("../config/cloudinary");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -15,12 +16,13 @@ router.get("/lost-form", (req, res, next) => {
   res.render("lost-form");
 });
 
-router.post("/lost-form", (req, res, next) => {
-  let {category, lostItem, imageURL, location, lostDate, reward, desc}=req.body;
+router.post("/lost-form", uploadCloud.single("image"),(req, res, next) => {
+  let {category, lostItem, location, lostDate, reward, desc}=req.body;
+  let image = req.file.url;
   let newLost = new Lost({
     category,
     lostItem,
-    imageURL,
+    image,
     location,
     lostDate,
     reward,
@@ -42,12 +44,13 @@ router.get("/found-form", (req, res, next) => {
   res.render("found-form");
 });
 
-router.post("/found-form", (req, res, next) => {
-  let {category, foundItem, imageURL, location, foundDate, desc }=req.body;
+router.post("/found-form", uploadCloud.single("image"), (req, res, next) => {
+  let {category, foundItem, location, foundDate, desc }=req.body;
+  let image = req.file.url;
   let newFound = new Found({
     category,
     foundItem,
-    imageURL,
+    image,
     location,
     foundDate,
     desc
