@@ -1,3 +1,4 @@
+$primary: #1D8A99;
 @import "node_modules/bootstrap/scss/bootstrap";
 
 // body {
@@ -5,6 +6,38 @@
 //   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 // }
 
-a {
-  color: #00B7FF;
+
+
+
+
+.navbar-expand-sm, .btn{
+  background-color: $primary
 }
+
+// .container1{
+//   position: absolute;
+//   flex-wrap: wrap;
+//   top: 250px;
+//   bottom: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   color: #fff;
+//   text-align: center;
+//   opacity: 0.7;
+// }
+
+// .carousel-buttons1{
+//   position: absolute;
+//   flex-wrap: wrap;
+//   top: 350px;
+//   bottom: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   color: #fff;
+//   text-align: center;
+//   opacity: 0.7;
+// }
