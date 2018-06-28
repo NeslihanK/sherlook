@@ -5,6 +5,8 @@ const Lost = require("../models/Lost");
 /*Middleware */
 const uploadCloud = require("../config/cloudinary");
 const Comment = require("../models/Comment");
+const User = require("../models/User");
+
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -19,7 +21,14 @@ router.get("/lost-form", (req, res, next) => {
 
 router.post("/lost-form", uploadCloud.single("image"),(req, res, next) => {
   let {category, lostItem, location, lostDate, reward, desc}=req.body;
-  let image = req.file.url;
+  let image='';
+  if(req.file){
+    image = req.file.url;
+  } else {
+    image = 'https://dementiacarebooks.com/wp-content/uploads/2017/03/magnifying-glass-detective-300x244.jpeg'
+  }
+  
+  // console.log("DEBUG IMAGE", image);
   let newLost = new Lost({
     category,
     lostItem,
@@ -30,15 +39,19 @@ router.post("/lost-form", uploadCloud.single("image"),(req, res, next) => {
     desc,
     _user:req.user
     });
-   console.log("newLost is", newLost);
-  
-   newLost.save((err) => {
-    if (err) {
-      res.render("lost-form", { message: "Something went wrong" });
-    } else {
-      res.redirect("/");
+ 
+  User.findByIdAndUpdate(req.user.id,{ $push: {_losts: newLost} } , {new: true} )
+  .then(()=>{
+    newLost.save((err) => {
+      if (err) {
+        res.render("lost-form", { message: "Something went wrong" });
+      } else {
+        res.redirect("/lost-list");
+      }
+    });
     }
-  });
+  )
+  
 }); 
 
 /* Go to found form */
@@ -48,7 +61,11 @@ router.get("/found-form", (req, res, next) => {
 
 router.post("/found-form", uploadCloud.single("image"), (req, res, next) => {
   let {category, foundItem, location, foundDate, desc,}=req.body;
-  let image = req.file.url;
+  if(req.file){
+    image = req.file.url;
+  } else {
+    image = '/images/found_default.jpg'
+  }
   let newFound = new Found({
     category,
     foundItem,
@@ -58,14 +75,17 @@ router.post("/found-form", uploadCloud.single("image"), (req, res, next) => {
     desc,
     _user:req.user
   });
-   
-  newFound.save((err) => {
+
+  User.findByIdAndUpdate(req.user.id,{ $push: {_founds: newFound} } , {new: true} )
+  .then(()=>{
+    newFound.save((err) => {
     if (err) {
       res.render("found-form", { message: "Something went wrong" });
     } else {
-      res.redirect("/");
+      res.redirect("/found-list");
     }
   });
+  })
 }); 
 
 router.get('/lost-list', (req, res, next) => {
@@ -90,10 +110,7 @@ router.get('/found-list', (req, res, next) => {
   .catch(err => {throw err})
 });
 
-router.get('/profile', (req, res, next) => {
-  
-  res.render('profile');
-});
+
 
 
 
@@ -109,11 +126,9 @@ router.get('/lost-list/:lostId', (req, res, next) => {
       },
   })
   .then (lostObject => {
-    console.log(lostObject)
+    // console.log(lostObject)
   res.render('lost-details', lostObject);
-  })
- 
-  
+  })  
 });
 
 
@@ -124,7 +139,6 @@ router.post('/lost-list/:lostId', (req, res, next) => {
     content,
     author: req.user
   })
-
   
     Lost.findByIdAndUpdate(lostId, { $push: {comments: newComment} } , {new: true})
     .then(() => {
@@ -138,6 +152,7 @@ router.post('/lost-list/:lostId', (req, res, next) => {
 
 
 router.get('/found-list/:foundId', (req, res, next) => { 
+  // console.log("FOUNDID GET")
   let foundId = req.params.foundId;
   Found.findById(foundId)
   .populate({
@@ -145,15 +160,12 @@ router.get('/found-list/:foundId', (req, res, next) => {
     model: 'Comment',
       populate:{
         path: 'author',
-        model: 'User'
-      },
-  })
+        model: 'User'}
+    })
   .then (foundObject => {
-    console.log(foundObject)
+    // console.log(foundObject)
   res.render('found-details', foundObject);
-  })
- 
-  
+  })  
 });
 
 
@@ -174,6 +186,16 @@ router.post('/found-list/:foundId', (req, res, next) => {
     )
     }
   )
+});
+
+
+/* User PROFILE  page */
+router.get('/profile', (req, res, next) => {
+  userId=req.user.id;
+  User.findById(userId)
+  .populate("_losts _founds").then(user =>{
+  res.render('profile', user);
+  })
 });
 
 

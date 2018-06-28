@@ -1,8 +1,48 @@
 {{#if myUser}}
-  <div>
-    
-    <h1>{{myUser.username}}</h1>
+  <div>    
+    <h1>Welcome to your profile {{myUser.username}}!</h1>
   </div>
 {{else}}
   <h1>You can't access this page</h1>
   {{/if}}
+
+
+
+{{!-- <ul>
+  {{#each _losts}}
+  <li>{{this.lostItem}}</li>
+  {{/each}}
+</ul>
+
+<ul>
+  {{#each _founds}}
+  <li>{{this.foundItem}}</li>
+  {{/each}}
+</ul> --}}
+
+{{#each _losts}}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">What I lost: {{this.lostItem}}</h5>
+    <p class="card-text">Description: {{this.desc}}</p>
+    <p class="card-text">Location: {{this.location}}</p>
+    <p class="card-text">Date: {{this.lostDate}}</p>
+    <p class="card-text">Reward: {{this.reward}}</p>
+    <a href="/lost-list/{{this._id}}" class="btn btn-primary">Click for comments</a>
+  </div>
+</div>
+{{/each}}
+
+{{#each _founds}}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">What I found: {{this.foundItem}}</h5>
+    <p class="card-text">Description: {{this.desc}}</p>
+    <p class="card-text">Location: {{this.location}}</p>
+    <p class="card-text">Date: {{this.lostDate}}</p>
+    <a href="/found-list/{{this._id}}" class="btn btn-primary">Click for comments</a>
+  </div>
+</div>
+{{/each}}
