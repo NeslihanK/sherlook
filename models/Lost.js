@@ -12,6 +12,6 @@ const lostSchema = new Schema({
   reward: { type: String},
   _user: {type: Schema.Types.ObjectId, ref:'User'}
 });
-
+//SCHLARS
 const Lost = mongoose.model("Lost", lostSchema);
 module.exports = Lost;
