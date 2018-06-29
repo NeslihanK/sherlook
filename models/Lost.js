@@ -10,7 +10,7 @@ const lostSchema = new Schema({
   desc: { type: String},
   comments: [{type: Schema.Types.ObjectId, ref:'Comment'}],
   reward: { type: String},
-  _user: {type: Schema.Types.ObjectId, ref:'User'}
+  _user: [{type: Schema.Types.ObjectId, ref:'User'}]
 });
 //SCHLARS
 const Lost = mongoose.model("Lost", lostSchema);

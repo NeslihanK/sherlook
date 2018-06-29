@@ -90,6 +90,7 @@ router.post("/found-form", uploadCloud.single("image"), (req, res, next) => {
 
 router.get('/lost-list', (req, res, next) => {
   Lost.find()
+  .populate('_user')
   .then((lostDocs) => {
     let data = {
       losts: lostDocs
@@ -101,10 +102,12 @@ router.get('/lost-list', (req, res, next) => {
 
 router.get('/found-list', (req, res, next) => {
   Found.find()
+  .populate('_user')
   .then(foundDocs => {
     let data = {
       founds: foundDocs
     };
+    console.log(data.founds[4]._user[0].username)
     res.render('found-list', data);
   })
   .catch(err => {throw err})
