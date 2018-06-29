@@ -6,9 +6,10 @@
 <div class="card mb-3" style="width: 18rem;">
   <img class="card-img-top" src="{{image}}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{foundItem}}</h5>
-    <p class="card-text">{{desc}}</p>
-    <a href="/found-list/{{this._id}}" class="btn btn-primary">{{this.foundItem}}</a>
+    <h5 class="card-title">Found: {{foundItem}}</h5>
+    <p class="card-text">Description: {{desc}}</p>
+    <p class="card-text">Location: {{location}}</p>
+    <a href="/found-list/{{this._id}}" class="btn btn-primary">Click for details</a>
   </div>
 </div>
 {{/each}}

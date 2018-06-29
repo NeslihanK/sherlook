@@ -110,10 +110,6 @@ router.get('/found-list', (req, res, next) => {
   .catch(err => {throw err})
 });
 
-
-
-
-
 router.get('/lost-list/:lostId', (req, res, next) => { 
   let lostId = req.params.lostId;
   Lost.findById(lostId)
