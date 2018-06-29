@@ -1,43 +1,45 @@
 $primary: #1D8A99;
 @import "node_modules/bootstrap/scss/bootstrap";
 
-// body {
-//   padding: 50px;
-//   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-// }
-
-
-
-
-
 .navbar-expand-sm, .btn{
   background-color: $primary
 }
 
-// .container1{
-//   position: absolute;
-//   flex-wrap: wrap;
-//   top: 250px;
-//   bottom: 0;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 100%;
-//   color: #fff;
-//   text-align: center;
-//   opacity: 0.7;
-// }
+.lostList {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  margin: auto;
+  flex-flow: row wrap;
+  flex-direction: row;
+}
 
-// .carousel-buttons1{
-//   position: absolute;
-//   flex-wrap: wrap;
-//   top: 350px;
-//   bottom: 0;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 100%;
-//   color: #fff;
-//   text-align: center;
-//   opacity: 0.7;
-// }
+.foundDetails{
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  margin: auto;
+  flex-flow: row wrap;
+  flex-direction: row;
+}
+
+.lostDetails{
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  margin: auto;
+  flex-flow: row wrap;
+  flex-direction: row;
+}
+
+textarea {
+  border: 1px solid #333;
+}
+
+.comments {
+  border: 1px solid #333;
+}
+
+
+
+

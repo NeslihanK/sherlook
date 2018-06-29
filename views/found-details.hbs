@@ -1,23 +1,32 @@
 <h1>Found Details Page </h1>
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
-  <div class="card-body">
+<div class="foundDetails">
+  <div class="card" style="width: 25rem;">
+    <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+    <div class="card-body">
     <h5 class="card-title">{{this.foundItem}}</h5>
-    <p class="card-text">{{desc}}</p>
-    
+    <p class="card-text">{{desc}}</p> 
+  </div>
+</div>
+
+
+  <div class="commentField">
+    <form action="/found-list/{{this._id}}" method="post"> 
+    <textarea style="width: 35rem;" name="comment" id="comment" cols="30" rows="10"></textarea>
+    <button class="btn btn-primary" type="submit">post</button>
+    </form>
+
+    <div class="comments" style="width: 35rem;">
+      {{#each comments}}
+      <p>Author: {{this.author.username}}</p>
+      <p>Comment: {{this.content}}</p>
+      {{/each}}
+    </div>
   </div>
 </div>
 
 
 
-{{#each comments}}
-  <p>Author: {{this.author.username}}</p>
-  <p>Comment: {{this.content}}</p>
-{{/each}}
 
 
-<form action="/found-list/{{this._id}}" method="post"> 
-<textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-<button type="submit">post</button>
-</form>
+

@@ -1,8 +1,9 @@
 
 <p>List of lost things</p>
-
+<div class="lostList">
 {{#each losts}}
-<div class="card" style="width: 18rem;">
+
+<div class="card mb-3" style="width: 18rem;">
   <img class="card-img-top" src="{{image}}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{lostItem}}</h5>
@@ -10,4 +11,6 @@
     <a href="/lost-list/{{this._id}}" class="btn btn-primary">{{this.lostItem}}</a>
   </div>
 </div>
+
 {{/each}}
+</div>

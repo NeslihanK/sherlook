@@ -19,9 +19,9 @@
   <li>{{this.foundItem}}</li>
   {{/each}}
 </ul> --}}
-
+<div class="lostList">
 {{#each _losts}}
-<div class="card" style="width: 18rem;">
+<div class="card mb-3" style="width: 18rem;">
   <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">What I lost: {{this.lostItem}}</h5>
@@ -35,7 +35,7 @@
 {{/each}}
 
 {{#each _founds}}
-<div class="card" style="width: 18rem;">
+<div class="card mb-3" style="width: 18rem;">
   <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">What I found: {{this.foundItem}}</h5>
@@ -46,3 +46,5 @@
   </div>
 </div>
 {{/each}}
+
+</div>
