@@ -5,9 +5,10 @@
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="{{image}}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{lostItem}}</h5>
-    <p class="card-text">{{desc}}</p>
-    <a href="/lost-list/{{this._id}}" class="btn btn-primary">{{this.lostItem}}</a>
+    <h5 class="card-title">Lost: {{lostItem}}</h5>
+    <p class="card-text">Description: {{desc}}</p>
+    <p class="card-text">Location: {{location}}</p>
+    <a href="/lost-list/{{this._id}}" class="btn btn-primary">Click for details</a>
   </div>
 </div>
 {{/each}}
